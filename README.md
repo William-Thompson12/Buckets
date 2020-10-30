@@ -72,7 +72,8 @@ This ranges from checking players stats or what college they joined, to finding 
 
             - Standings
                 - Data is fetched from API -> "https://www.balldontlie.io/api/v1/teams" and is sorted by the seed using .sort -> "nbaTeamRankedSorted" in data.js.
-                - Two functions -> renderTeamStandingsEast(nbaTeamDataArr), renderTeamStandingsWest (nbaTeamDataArr) takes the sorted array and is mapped based on each teams division.
+                - Two functions -> renderTeamStandingsEast(nbaTeamDataArr), renderTeamStandingsWest (nbaTeamDataArr) 
+                    takes the sorted array and is mapped based on each teams division.
                 - Each team name is selectable and takes you to the teams logo and roster.
 
             - Player Stats
@@ -83,7 +84,7 @@ This ranges from checking players stats or what college they joined, to finding 
                 - A button linked to another popup display -> a key for stats.
 
             - Team Logos
-                - Data is fetched from API -> "https://www.balldontlie.io/api/v1/teams" and then sorted by function renderTeams(nbaTeamDataArr)
+                - Data is fetched from API -> `https://api-nba-v1.p.rapidapi.com/players/teamId/${teamId}` and then sorted by function renderTeams(nbaTeamDataArr)
                 - Then function -> findPlayerRoster(playerTeam) takes each player and sorts them based on which team they play for.
                 - Link to wiki at the bottom of the page for more information on each team.
 

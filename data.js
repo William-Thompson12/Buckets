@@ -312,7 +312,7 @@ function getRoster(teamId) {
     .then(response => {
        return response.json()
     }) 
-    .then(result => findPlayerRoster(result.api.players))
+    .then(result => findPlayerRoster(result.api.players, teamId))
     .catch(error => console.log(error));
 }
 

@@ -25,7 +25,7 @@ function renderTeams(nbaTeamDataArr) {
               <div class="teamRoster-title">
                 <h4>${currentTeam.name} Roster:</h4>
               </div>
-              <div class="players">
+              <div id="${currentTeam.id}-Roster" class="players">
                 
               </div>
             </div>
@@ -94,14 +94,13 @@ function renderTeamStandingsEast (nbaTeamDataArr) {
 
 // Finds the rosters for each team in the renderTeams function above
 
-function findPlayerRoster(teamRoster){
-  console.log(teamRoster)
-  let newTeamRoster = teamRoster
-  let newPlayerRoster = newTeamRoster.map(currentPlayer => {
-    console.log(currentPlayer)
+function findPlayerRoster(teamRoster, teamId){
+  teamRoster = teamRoster.slice(0, 14)
+  var container = document.getElementById(`${teamId}-Roster`)
+  var newPlayerRoster = teamRoster.map(currentPlayer => {
       return `
       <div class="playerBar">
-      ${currentPlayer.first_name + ' ' + currentPlayer.last_name} POS:${currentPlayer.leagues.standard.pos}
+      ${currentPlayer.firstName + ' ' + currentPlayer.lastName} 
         <div class="dropdown">
           <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button
@@ -114,7 +113,7 @@ function findPlayerRoster(teamRoster){
       </div>
       `
   })
-  return newPlayerRoster.join(' ')
+  container.innerHTML = newPlayerRoster.join(' ')
 }
 
 //returns team rank for standing

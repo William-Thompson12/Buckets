@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buckets Signin</title>
     <!-- CSS only -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="signin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <script src="data.js"></script>
-    <script src="login.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="login.js"></script>
 </head>
 <body>
   <div class="page">
@@ -24,14 +22,17 @@
       <path fill-rule="evenodd" d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0h8.945a4.5 4.5 0 0 0-8.945 0z"></path>
       </svg>BUCKETS</h1>
       <form class="form-signin">
-        <img class="mb-4" src="favicon_io/android-chrome-512x512.png" alt="" width="72" height="72" style="margin-left: 40%;">
+        <img class="mb-4" src="../favicon_io/android-chrome-512x512.png" alt="" width="72" height="72" style="margin-left: 40%;">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-        <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
+        <input type="password" id="password" class="form-control" placeholder="Password" required="">
+        <button class="btn btn-lg btn-dark btn-block" id="loginButton" type="submit">Sign in</button>
       </form>
+      <div id="errorMessage">
+
+      </div>
       <div style="margin-top: 20px;">
         <a id="homepage-link" href="homepage.html"><h6>Back to Home</h6></a>
       </div>
@@ -64,6 +65,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <!-- Add additional services that you want to use -->
 
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
 
 <script>
   // Your web app's Firebase configuration

@@ -4,18 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Buckets Sign up</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="signupStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <script src="data.js"></script>
-    <script src="login.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="signup.js"></script>
 </head>
 <body>
     <div class="page">
@@ -34,7 +32,7 @@
                                 <span class="fa fa-user"></span>
                             </span>                    
                         </div>
-                        <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                        <input  id="email" type="text" class="form-control" name="Email" placeholder="Email" required="required">
                     </div>
                 </div>
                 <div class="form-group">
@@ -48,10 +46,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" onclick="signUp()" id="signup-button" class="btn btn-primary btn-lg">Sign Up</button>
+                    <button type="submit" id="signup-button" class="btn btn-primary btn-lg">Sign Up</button>
+                </div>
+                <div id="errorMessage">
+
                 </div>
             </form>
-            <div class="text-center">Already have an account? <a href="login.html">Login here</a></div>
+            <div class="text-center">Already have an account? <a href="../login/">Login here</a></div>
         </div>
     </div>
     <div class="footer">
@@ -81,7 +82,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <!-- Add additional services that you want to use -->
 
 <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
