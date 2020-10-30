@@ -18,7 +18,7 @@ function renderTeams(nbaTeamDataArr) {
         <img id="teamLogo" src="https://stats.nba.com/media/img/teams/logos/${currentTeam.abbreviation}_logo.svg">
         ${currentTeam.full_name}<br> [${currentTeam.abbreviation}]
         <a href="https://en.wikipedia.org/wiki/${currentTeam.full_name}" target="_blank">Learn More</a>
-        <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#collapseExample${currentTeam.id}" aria-expanded="false" aria-controls="collapseExample${currentTeam.teamId}">Roster</button>
+        <button class="btn btn-dark" type="button" onclick="getRoster(${currentTeam.id})" data-toggle="collapse" data-target="#collapseExample${currentTeam.id}" aria-expanded="false" aria-controls="collapseExample${currentTeam.teamId}">Roster</button>
         <div class="team-Card collapse" id="collapseExample${currentTeam.id}">
           <div class="card card-body">
             <div class="team-roster" id="team-roster">
@@ -26,7 +26,7 @@ function renderTeams(nbaTeamDataArr) {
                 <h4>${currentTeam.name} Roster:</h4>
               </div>
               <div class="players">
-                ${findPlayerRoster(currentTeam.name)}
+                
               </div>
             </div>
           </div>
@@ -94,17 +94,27 @@ function renderTeamStandingsEast (nbaTeamDataArr) {
 
 // Finds the rosters for each team in the renderTeams function above
 
-function findPlayerRoster(playerTeam){
-  var newPlayerRoster = nbaPlayerDataArr.map(currentPlayer => {
-    if(playerTeam == currentPlayer.team.name){
+function findPlayerRoster(teamRoster){
+  console.log(teamRoster)
+  let newTeamRoster = teamRoster
+  let newPlayerRoster = newTeamRoster.map(currentPlayer => {
+    console.log(currentPlayer)
       return `
       <div class="playerBar">
-      ${currentPlayer.first_name + ' ' + currentPlayer.last_name} POS:${currentPlayer.position}
+      ${currentPlayer.first_name + ' ' + currentPlayer.last_name} POS:${currentPlayer.leagues.standard.pos}
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <p class="dropdown-item">NBA Debut: ${currentPlayer.startNba}</p>
+            <p class="dropdown-item">Years Pro: ${currentPlayer.yearsPro}</p>
+          </div>
+        </div>
       </div>
       `
-    }
   })
-  return newPlayerRoster
+  return newPlayerRoster.join(' ')
 }
 
 //returns team rank for standing

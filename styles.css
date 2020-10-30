@@ -1,3 +1,7 @@
+/* :root {
+    --fullWidth: 100%;
+    --rosterTop: THE WIDTH OF THE PAGE %;
+  } */
 .header {
     width: 15vw;
     height: 100vh;
@@ -239,7 +243,7 @@
     width: 100px;
     height: auto;
     background-color: rgb(216, 216, 216);
-    border-radius: 30px;
+    border-radius: 10px;
     margin: 6px;
     align-self: center;
 }
