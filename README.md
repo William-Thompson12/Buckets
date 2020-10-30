@@ -39,7 +39,7 @@ This ranges from checking players stats or what college they joined, to checking
             ^ I am a guy who enjoyes solving problems through googling or trial and error as mentioned earlier.
             ^ This caused me to speand hours on an issue that could have been solved if only I had contacted my peers and teachers after a certain amount of time.
 
-**###Repository Contents**
+**Repository Contents**
 
 - A total of 4 HTML(one for eachpage), 4 CSS(one for eachpage), 
     3 Javascript files(One deals with functions primarly fetching API data on the "Data.js" file, 
