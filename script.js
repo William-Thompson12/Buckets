@@ -170,7 +170,7 @@ changeUserPic.addEventListener("change", () => {
   newTeamName = teamName.value;
   document.getElementById("userPic").innerHTML = getTeamPic(newTeamName);    
   document.getElementById("userPic2").innerHTML = getTeamPic2(newTeamName);
-  document.getElementById("userFav").innerHTML = console.log(setFavTeam(newTeamName, nbaTeamDataArr))
+  document.getElementById("userFav").innerHTML = setFavTeam(newTeamName);
 });
 
 // Displays chosen teams name in profile popup

@@ -306,15 +306,35 @@ function getTeamData(data){
     })
 }
 
-const nbaPlayerDataArr = []
+// const nbaPlayerDataArr = []
+// for(let i = 1; i <= 131; i++)
+//     fetch("https://balldontlie.io/api/v1/players?page=", requestOptions)
+//     .then(response => {
+//        return response.json()
+//     }) 
+//     .then(result => getPlayerData(result.data))
+//     .catch(error => console.log(error));
 
-    fetch("https://balldontlie.io/api/v1/players", requestOptions)
-    .then(response => {
-       return response.json()
-    }) 
-    .then(result => getPlayerData(result.data))
-    .catch(error => console.log(error));
+// function getPlayerData(data) {
+//     nbaPlayerDataArr.push(data)
+// }
 
+async function fetchChar() {
+    let res = await fetch("https://balldontlie.io/api/v1/players/");
+    let data = await res.json();
+  
+    const restOfThepages = await Promise.all(
+      Array(data.info.pages - 1)
+        .fill(0)
+        .map(i =>
+          fetch(`https://balldontlie.io/api/v1/players/?page=${i + 2}`).then(res => res.json()).then(d => d.results)
+        )
+    );
+  
+    const flattenedData = restOfThepages.reduce((acc, d) => [...acc, ...d], []);
+    console.log([...data.results, ...flattenedData])
+    return [...data.results, ...flattenedData];
+}
 
 // Player Finder API
 
