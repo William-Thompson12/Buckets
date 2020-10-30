@@ -4,7 +4,7 @@
 **Hello! Welcome to my front-end project "Buckets"**
 
 Buckets is a one stop shop for everything basketball.
-This ranges from checking players stats or what college they joined, to checking out what some of the great basketball minds have to report.
+This ranges from checking players stats or what college they joined, to finding great basketball minds.
 
 **Who am I?:**
 
