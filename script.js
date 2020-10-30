@@ -103,7 +103,7 @@ function findPlayerRoster(teamRoster, teamId){
       ${currentPlayer.firstName + ' ' + currentPlayer.lastName} 
         <div class="dropdown">
           <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
+            More Stats
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <p class="dropdown-item">NBA Debut: ${currentPlayer.startNba}</p>
