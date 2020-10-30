@@ -1,18 +1,18 @@
 # Buckets
-##Front-End Project - Digital Crafts
+## Front-End Project - Digital Crafts
 
-**##Hello! Welcome to my front-end project "Buckets"**
+**## Hello! Welcome to my front-end project "Buckets"**
 
 Buckets is a one stop shop for everything basketball.
 This ranges from checking players stats or what college they joined, to checking out what some of the great basketball minds have to report.
 
-**###Who am I?:**
+**### Who am I?:**
 
     - Hi, my name is William Thompson!
     - In the process of writing this I'm currently enrolled in a 26 Week flex coding bootcamp from Digital-Crafts.
     - This project is to help demonstrate what i've learned so far in the course along as a tool for practice and growth.
 
-**###Making the Project:**
+**### Making the Project:**
 
     - Why I chose to work by myself? (We were allowed up to 4 people a team)
 
@@ -54,7 +54,7 @@ This ranges from checking players stats or what college they joined, to checking
     - https://nba-players.herokuapp.com/ (Head Shots for Most NBA Players)
     - https://api-nba-v1.p.rapidapi.com/ (Player Statistics, Team Statistics, Player Bio)
 
-**###Features & How they work:**
+**### Features & How they work:**
 
     - Main/Index.html:
 
@@ -136,7 +136,7 @@ This ranges from checking players stats or what college they joined, to checking
         - Footer
             - Every page also comes with a footer containing two links which link to my personal GitHub and Linkedin.
 
-**###Stylesheets & Whats Linked:**
+** ###Stylesheets & Whats Linked:**
 
     - Bootstrap
     - FontAwesome
