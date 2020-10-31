@@ -55,7 +55,7 @@ This ranges from checking players stats or what college they joined, to finding 
 
 **Features & How they work:**
 
-    - Main/Index.html:
+    - Main/Home.html:
 
         - Side Nav:
             - The side nav is composed of easy to read to links which redirect you to content on the page or to other websites.
@@ -115,7 +115,7 @@ This ranges from checking players stats or what college they joined, to finding 
         - Footer
             - Every page also comes with a footer containing two links which link to my personal GitHub and Linkedin.
 
-    - homepage.html:
+    - Index.html:
 
         - Top-Nav:
             - Simple Bootstrap Nav with links to login and signup and websites title.
@@ -150,18 +150,11 @@ This ranges from checking players stats or what college they joined, to finding 
 
     - Login.html
         - Signin.css *Poor Naming Choice I Know*
-        - Script.js
-        - Data.js
         - Login.js
 
     - Signup.html
         - SignupStyles.css *Poor Naming Choice I Know*
-        - Script.js
-        - Data.js
-        - Login.js
+        - Signup.js
 
     - Homepage.html
         - homepageStyles.css *Poor Naming Choice I Know*
-        - Script.js
-        - Data.js
-        - Login.js
