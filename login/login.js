@@ -10,7 +10,7 @@ loginButton.addEventListener('click', function(){
     firebase
     .auth()
     .signInWithEmailAndPassword(emailValue, passwordValue)
-    .then(function(login){
+    .then(function(){
       window.location.replace('../index.html')
     })
     .catch(function(error) {

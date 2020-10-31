@@ -24,13 +24,12 @@ This ranges from checking players stats or what college they joined, to finding 
 
         - Although throughout this entire process I kept hitting road blocks and what seemed like never ending issues.
         - I was able to get better understanding and really build my base knowledge up on API's and some issues that can come with them.
-            ^ List the Errors of the API YOU HAD
+            ^ I had every error from 400-406 and even a 429. Lucky I was able to solve the 429 by making rosters load on click avoiding spamming the server for request of every player.
         - Learning through trial and error ways to format my code to be more efficent and easily adaptable.
             ^ Specifically setting up function to render data where errors can be easily identified in each step of the function.
             ^ Debugging my code and learning general areas to look out for when dealing with specific problems. (Console.log was very useful, Chrome Dev Tools as well)
     
     - What would I do differently
-
         - I had very many issues specifically with making a responsive design across all devices and sizes, this is something I still personally find my self struggling with.
             - Bootstrap gives a very easy way to make a responsive website, I will continue to prctice with Bootstrap in order to make my future work responsive and clean.
         - I found myself wasting time by getting a feature or design perfect then ending up changing it later. 
@@ -42,8 +41,8 @@ This ranges from checking players stats or what college they joined, to finding 
 **Repository Contents**
 
 - A total of 4 HTML(one for eachpage), 4 CSS(one for eachpage), 
-    3 Javascript files(One deals with functions primarly fetching API data on the "Data.js" file, 
-    the other renders data to the screen "script.js", last one contains the login functions "users.js")
+    4 Javascript files(One deals with functions primarly fetching API data on the "Data.js" file, 
+    the other renders data to the screen "script.js", last two contains the login functions "login.js/signup.js")
 
 - Favicon_io folder for the tab icon
 
@@ -84,8 +83,8 @@ This ranges from checking players stats or what college they joined, to finding 
                 - A button linked to another popup display -> a key for stats.
 
             - Team Logos
-                - Data is fetched from API -> `https://api-nba-v1.p.rapidapi.com/players/teamId/${teamId}` and then sorted by function renderTeams(nbaTeamDataArr)
-                - Then function -> findPlayerRoster(playerTeam) takes each player and sorts them based on which team they play for.
+                - Data is fetched from API -> `https://api-nba-v1.p.rapidapi.com/players/teamId/${teamId}`
+                - Then function -> findPlayerRoster(playerTeam) takes each player and maps them.
                 - Link to wiki at the bottom of the page for more information on each team.
 
             - NBA Experts
@@ -93,7 +92,7 @@ This ranges from checking players stats or what college they joined, to finding 
                 - Each with a basic summary and links to socials.
 
             - History of NBA
-                - Bootstrap "" containg summary of the nba by the decade in a easy to read format.
+                - Bootstrap "Listgroup" containg summary of the nba by the decade in a easy to read format.
 
             - NBA Rules
                 - Iframe connected to the onclick of button "rule-expand" to display on click.
@@ -131,7 +130,7 @@ This ranges from checking players stats or what college they joined, to finding 
     - signup/login.html:
 
         - Content:
-            - User forum that conects to Firebase in -> Login.js and allows users to register or login.
+            - User forum that conects to Firebase and allows users to register or login.
             - Link to homepage and login or signup. 
         
         - Footer

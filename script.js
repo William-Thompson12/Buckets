@@ -25,7 +25,7 @@ function renderTeams(nbaTeamDataArr) {
               <div class="teamRoster-title">
                 <h4>${currentTeam.name} Roster:</h4>
               </div>
-              <div id="${currentTeam.id}-Roster" class="players">
+              <div id="${rosterContainer(currentTeam.id)}-Roster" class="players">
                 
               </div>
             </div>
@@ -34,6 +34,16 @@ function renderTeams(nbaTeamDataArr) {
       </div>`
   })
 logoWall.innerHTML = teamLogos.join(` `)
+}
+
+function rosterContainer(teamId){
+  if(teamId < 2){
+    return `${teamId}`
+  } else if (teamId > 2 && teamId < 11) {
+    return `${teamId - 1}`
+  } else {
+    return `${teamId - 4}`
+  }
 }
 
 // Renders all the team standings
@@ -96,20 +106,11 @@ function renderTeamStandingsEast (nbaTeamDataArr) {
 
 function findPlayerRoster(teamRoster, teamId){
   teamRoster = teamRoster.slice(0, 14)
-  var container = document.getElementById(`${teamId}-Roster`)
+  var container = document.getElementById(`${rosterContainer(teamId)}-Roster`)
   var newPlayerRoster = teamRoster.map(currentPlayer => {
       return `
       <div class="playerBar">
       ${currentPlayer.firstName + ' ' + currentPlayer.lastName} 
-        <div class="dropdown">
-          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More Stats
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <p class="dropdown-item">NBA Debut: ${currentPlayer.startNba}</p>
-            <p class="dropdown-item">Years Pro: ${currentPlayer.yearsPro}</p>
-          </div>
-        </div>
       </div>
       `
   })
@@ -217,11 +218,19 @@ function printPlayerBio(playerData, playerGivenFirst, playerGivenLast){
       document.getElementById("playerImg").innerHTML = `<img id="playerDisplayImg" src="https://nba-players.herokuapp.com/players/${newArr.lastName + "/" + newArr.firstName}">`
       document.getElementById("playerPosition").innerHTML = `Positon: ${newArr.leagues.standard.pos} | Jersey: #${newArr.leagues.standard.jersey}`
       document.getElementById("playerDisplayName").innerHTML = `${newArr.firstName + ' ' + newArr.lastName}`
-      document.getElementById('playerSecondary').innerHTML = `College: ${newArr.collegeName} | Born: ${newArr.dateOfBirth}`
+      document.getElementById('playerSecondary').innerHTML = sceondaryBio(newArr.collegeName, newArr.dateOfBirth)
+      console.log(newArr)
     }else{
-      return console.log('Error at printPlayerBio')
     }
   })
+}
+
+function sceondaryBio(college, dob){
+  if(college == null || " " && dob == null || " "){
+    return `College: Not Listed | Born: Not Listed`
+  }else{
+    return `College: ${college} | Born: ${dob}`
+  }
 }
 
 function printPlayerStats(data){

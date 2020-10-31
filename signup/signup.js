@@ -10,7 +10,7 @@ submitButton.addEventListener('click', function(){
     firebase
     .auth()
     .createUserWithEmailAndPassword(emailValue, passwordValue)
-    .then(function(signup){
+    .then(function(){
         window.location.replace('../login/')
       })
     .catch(function(error) {
