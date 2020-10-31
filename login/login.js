@@ -11,7 +11,7 @@ loginButton.addEventListener('click', function(){
     .auth()
     .signInWithEmailAndPassword(emailValue, passwordValue)
     .then(function(){
-      window.location.replace('../index.html')
+      window.location.replace('../home.html')
     })
     .catch(function(error) {
       errorMessageBox.innerHTML = error.message;
