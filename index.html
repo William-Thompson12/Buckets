@@ -4,372 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buckets</title>
-    <!-- CSS only -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepageStyles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="data.js"></script>
     <script defer src="script.js"></script>
 </head>
-<body onload="onDOMLoad(nbaTeamDataArr)">
-
-    <!-- All displayed is inside page -->
-
+<body>
     <div class="page">
-
-        <!-- Left Portion of Page aka Header -->
-
-        <div class="header">
-
-            <!-- Top-Right Profile Bar -->
-
-            <div class="profile-bar">
-                <div id="userPic">
-                </div>
-                <div style="display: flex;">
-                    <div id=userNameProfle>
-                        <h5 id="user2">Username</h5>
-                    </div>
-
-                    <!-- Button for Profile popup in top right -->
-
-                    <div class="profileMenu">
-                        <button type="button" class="btn btn-outline-dark" onclick="profilePopup()">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-menu-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M15 3.207v9a1 1 0 0 1-1 1h-3.586A2 2 0 0 0 9 13.793l-1 1-1-1a2 2 0 0 0-1.414-.586H2a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm-13 11a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-3.586a1 1 0 0 0-.707.293l-1.353 1.354a.5.5 0 0 1-.708 0L6.293 14.5a1 1 0 0 0-.707-.293H2z"></path>
-                        <path fill-rule="evenodd" d="M15 5.207H1v1h14v-1zm0 4H1v1h14v-1zm-13-5.5a.5.5 0 0 0 .5.5h6a.5.5 0 1 0 0-1h-6a.5.5 0 0 0-.5.5zm0 4a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11a.5.5 0 0 0-.5.5zm0 4a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 0-1h-8a.5.5 0 0 0-.5.5z"></path>
-                        </svg>
-                        </button>
-                    </div>
-                </div>
+        <nav class="navbar navbar-dark bg-clear">
+            <div class="header-logo">
+                <h1><svg width="1em" height="0.7em" viewBox="0 0 16 16" class="bi bi-bucket-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0h8.945a4.5 4.5 0 0 0-8.945 0z"/>
+                </svg>BUCKETS</h1>
             </div>
-
-            <!-- Header Buttons and Title -->
-
             <div class="header-buttons">
-                <h1><a href="#home"><svg width="1em" height="0.7em" viewBox="0 0 16 16" class="bi bi-bucket-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0h8.945a4.5 4.5 0 0 0-8.945 0z"/>
-                </svg>BUCKETS</a></h1>
-                <h3 id="profileButton" onclick="profilePopup()"><i class="fas fa-user-circle"></i> Profile</h3>
-                <h3><a href="#standings"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list-ol" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
-                    <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z"/>
-                  </svg> Standings</a></h3>
-                <h3><a href="#playerStats"><i class="fas fa-chart-pie"></i> Player Stats</a></h3>
-                <h3><a href="#teamsLogo"><i class="fas fa-basketball-ball"></i> Team Logos</a></h3>
-                <h3><a href="#article"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
-                    <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-                  </svg> NBA Experts</a></h3>
-                <h3><a href="#history"><i class="fas fa-book"></i> History of NBA</a></h3>
-                <h3><a href="#rules"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                    <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                  </svg> NBA Rules</a></h3>
-                <h3><a href="https://store.nba.com/" target="_blank" ><i class="fas fa-shopping-bag"></i> Shop NBA</a></h3>
-                <h3><a href="https://www.espn.com/fantasy/basketball/" target="_blank" ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash-stack" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z"/>
-                    <path fill-rule="evenodd" d="M15 5H1v8h14V5zM1 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H1z"/>
-                    <path d="M13 5a2 2 0 0 0 2 2V5h-2zM3 5a2 2 0 0 1-2 2V5h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 13a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-                  </svg> Play Fantasy</a></h3>
-                  <h3><a href="https://seatgeek.com/nba-tickets" target="_blank"><i class="fas fa-ticket-alt"></i> Tickets</a></h3>
-                  <br>
-                  <h3><a id="kobeButton" href="https://www.nba.com/kobe-bryant-tribute" target="_blank"> Black<i class="fas fa-cross"></i>Mamba</a></h3>
+                <form class="form">
+                    <button type="button" onclick="window.open('/signup')" class="btn btn-dark btn-lg">Sign Up</button>
+                    <button type="button" onclick="window.open('/login')" class="btn btn-dark btn-lg">Sign In</button>
+                </form>
             </div>
-
-            <!-- Bottom Portion of Header -->
-
-            <div class="header-bottom">
-                <h5>Personal Links: </h5>
-                <div class="button-container">
-                    <div class="col-5 header-bottom-buttons">
-                        <a href="https://github.com/William-Thompson12" target="_blank"><i class="fab fa-github-square"></i></a>
-                    </div>
-                    <div class="col-5 header-bottom-buttons">
-                        <a href="https://www.linkedin.com/in/william-thompson-04046a1a0/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Portion of Page aka Content -->
-
+        </nav>
         <div class="content">
-
-            <!-- Home Summary -->
-
-            <div class="home" id="home">
-                <div class="title">
-                    <h1><svg width="1em" height="0.7em" viewBox="0 0 16 16" class="bi bi-bucket-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Welcome to Buckets!</h1>
+                    <hr>
+                    <p class="lead">Make an account or sign in if you already have one using, to access all the latest greatest NBA news and Stats.</p>
+                </div>
+            </div>
+            <div class="container-Basketball">
+                <div id="basketball">
+                  <div class="leather"></div>
+                  <div class="horizontal-line-1"></div>
+                  <div class="horizontal-line-2"></div>
+                  <div class="horizontal-line-3">
+                    <div class="logo">
+                        <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-bucket-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0h8.945a4.5 4.5 0 0 0-8.945 0z"/>
-                        </svg>BUCKETS</h1>
-                        <div class="summary">
-                            <p>Buckets is a one stop shop for all your basketball needs! Check the stats and standings of the league. And don't forget to read the recommended articles from the top sports experts, keeping your sports knowledged sharp and up to date.</p>
-                        </div>
-                </div>
-            </div>
-
-            <!-- Team Standings Section -->
-
-            <div class="standings" id="standings">
-                <h1>Standings</h1>
-                <div class="confences">
-
-                    <!-- West -->
-
-                    <div class="west">
-                        <h1>WEST</h1>
-                        <div class="west-standings">
-                            <div class="rankedTeamWest" id="rankedTeamWestern">
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- East -->
-
-                    <div class="east">
-                        <h1>EAST</h1>
-                        <div class="east-standings">
-                            <div class="rankedTeamEast" id="rankedTeamEastern">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PlayerFinder Section -->
-
-            <div class="playerStats" id="playerStats">
-                <h1>Player Statistics</h1>
-                <div class="userFinder">
-                    <button class="btn btn-primary" id="graphKeyButton" onclick="showKey()">Key</button>
-                    <div class="offset-1 col-4 playerFinderSummary">
-                        <p>You can look up the stats for any player who has played in the NBA</p>
-                    </div>
-                    <form class="searchForm">
-                          <div class="col">
-                            <input  id="firstName" type="text" class="form-control" placeholder="First name">
-                          </div>
-                          <div class="col">
-                            <input id="lastName" type="text" class="form-control" placeholder="Last name">
-                          </div>
-                          <br>
-                          <button id="graphSearchButton" type="button" class="btn btn-dark" onclick="userPlayerInput()">Search</button>
-                    </form>
-                </div>
-
-                <!-- Player Stats Printed -->
-
-                <div class="row">
-                    <span id="playerImg"></span>
-                    <h2 id="playerDisplayName"></h2>
-                </div>
-                    <div class="row">
-                        <div id='playerPosition' class="col-md-4"></div>
-                        <div id='playerSecondary' class="col-md-4"></div>
-                    </div>
-                    <div id='playerKey' class="col-md-2">
-                        <div id="graphKey">
-                            <div> PPG = points per game |</div>
-                            <div> APG = assist per game |</div>
-                            <div> RPG = rebounds per game |</div>
-                            <div> SPG = steals per game |</div>
-                            <div> BPG = blocks per game |</div>
-                            <div> TOG = turnovers per game |</div>
-                            <div> FAPG = shots attempted per game |</div>
-                            <div> FMPG = shots made per game |</div>
-                            <div> FT% = freethrow percentage |</div>
-                            <div> FG% = field goal percentage |</div>
-                            <div> 3P% = 3 point percentage |</div>
-                            <div> MPG = minutes per game |</div>  
-                        </div>
-                    </div>
-                <div class="playerStatBar" id="playerStatBar">
-                    <div id='top-Graph' class="row">
-                        <div class="col-md-1">PPG</div>
-                        <div class="col-md-1">APG</div>
-                        <div class="col-md-1">RPG</div>
-                        <div class="col-md-1">SPG</div>
-                        <div class="col-md-1">BPG</div>
-                        <div class="col-md-1">TOPG</div>
-                        <div class="col-md-1">FAPG</div>
-                        <div class="col-md-1">FMPG</div>
-                        <div class="col-md-1">FT%</div>
-                        <div class="col-md-1">FG%</div>
-                        <div class="col-md-1">3P%</div>
-                        <div class="col-md-1">MPG</div>
-                    </div>
-                    <div id="bot-Graph" class="row">
-                        <div id='ppg' class="col-md-1"></div>
-                        <div id='apg' class="col-md-1"></div>
-                        <div id='rpg' class="col-md-1"></div>
-                        <div id='spg' class="col-md-1"></div>
-                        <div id='bpg' class="col-md-1"></div>
-                        <div id='topg' class="col-md-1"></div>
-                        <div id='fapg' class="col-md-1"></div>
-                        <div id='fmpg' class="col-md-1"></div>
-                        <div id='ft' class="col-md-1"></div>
-                        <div id='fg' class="col-md-1"></div>
-                        <div id='3p' class="col-md-1"></div>
-                        <div id='mpg' class="col-md-1"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Containter of the team logos and rosters -->
-
-            <div class="teamsLogo" id="teamsLogo">
-                <h3 class="logoWallTitle">NBA Team Logos & Rosters</h3>
-                <div id="logoWall" class="logoWall">
-                </div>
-            </div>
-
-            <!-- Carousel of NBA Experts -->
-
-            <div class="article" id="article">
-                <h1>NBA Experts</h1>
-                <div class="background">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img id="carousel-img" src="img/kot4q.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5 id="carousel-text">Kenny Beecham</h5>
-                                <p id="carousel-text">Kentrell "Kenny" Beecham better known online as KOT4Q (short for King of the 4th Quarter), is an American gaming YouTuber and podcast host.</p>
-                                <a id="carousel-link" href="https://twitter.com/KOT4Q">Click Here</a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img/woj.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5 id="carousel-text">Adrian Wojnarowski</h5>
-                                <p id="carousel-text">Adrian Wojnarowski, nicknamed "Woj", is an American sports columnist, reporter and author. He is an NBA insider for ESPN.</p>
-                                <a id="carousel-link" href="https://twitter.com/wojespn">Click Here</a>
-                            </div>
-                        </div>
-                            <div class="carousel-item">
-                            <img src="img/stephenA.jpeg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5 id="carousel-text">Stephen A. Smith</h5>
-                                    <p id="carousel-text">Stephen Anthony Smith is an American sports television personality, sports radio host, and sports journalist.</p>
-                                    <a id="carousel-link" href="https://twitter.com/stephenasmith">Click Here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nba History -->
-
-            <div id="history">
-                <div class="history">
-                    <h1>History of The NBA</h1>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                      <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action bg-dark text-light active" id="list-1960-list" data-toggle="list" href="#list-1960" role="tab" aria-controls="1960"><i class="fas fa-clipboard"></i> 1960's</a>
-                        <a class="list-group-item list-group-item-action bg-dark text-light" id="list-1970-list" data-toggle="list" href="#list-1970" role="tab" aria-controls="1970"><i class="fas fa-level-down-alt"></i> 1970's</a>
-                        <a class="list-group-item list-group-item-action bg-dark text-light" id="list-1980-list" data-toggle="list" href="#list-1980" role="tab" aria-controls="1980"><i class="fas fa-money-bill-wave-alt"></i> 1980's</a>
-                        <a class="list-group-item list-group-item-action bg-dark text-light" id="list-1990-list" data-toggle="list" href="#list-1990" role="tab" aria-controls="1990"><i class="fas fa-medal"></i> 1990's</a>
-                        <a class="list-group-item list-group-item-action bg-dark text-light" id="list-2000-list" data-toggle="list" href="#list-2000" role="tab" aria-controls="2000"><i class="fas fa-user-tag"></i> 2000's</a>
-                        <a class="list-group-item list-group-item-action bg-dark text-light" id="list-2010-list" data-toggle="list" href="#list-2010" role="tab" aria-controls="2010"><i class="fas fa-tv"></i> 2010's</a>
-                      </div>
-                    </div>
-                    <div class="col-8">
-                      <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-1960" role="tabpanel" aria-labelledby="list-1960-list">The NBA in the 1960s was rougher, tougher, smaller and less visible than just about every decade that followed.
-                            The Boston Celtics dominated. Wilt Chamberlain scored 100 points in a game. Jerry West modeled the NBA logo, the league expanded and television audiences took notice. 
-                            The brutish big man was the prized commodity in an era characterized by physicality. Chamberlain and Bill Russell won nine of the 11 MVP awards between 1958 and 1968. </div>
-                        <div class="tab-pane fade" id="list-1970" role="tabpanel" aria-labelledby="list-1970-list">And the NBA had a pesky competitor in the ABA, 
-                            which was not so much a professional basketball league as a petri dish for the fusion of street-ball-honed agility with Harlem Globetrotter-esque showmanship.
-                            As the movie Semi-Pro suggests, the ABA was a fly-by-night operation for some; several teams were imbued with a lunacy only equaled by Bill Veeck.
-                            Quirky halftime shows were as familiar as attempts to lure stars away from the NBA, with Rick Barry becoming the most notable turncoat.</div>
-                        <div class="tab-pane fade" id="list-1980" role="tabpanel" aria-labelledby="list-1980-list">History has been kind to the Magic/Bird era, which famously rejuvenated the league out of its late '70s funk by rekindling the sport's best rivalry and introducing us to the wondrous talents of Michael Jordan.
-                            (To say nothing of Isiah, Sir Charles, The Mailman, Stockton, Patrick, The Admiral and The Dream.)</div>
-                        <div class="tab-pane fade" id="list-1990" role="tabpanel" aria-labelledby="list-1990-list">The 1990s were noteworthy primarily for two things, Michael Jordan and the greatest collection of big men who ever played the game.
-                            Perhaps this is what makes the decade so incredibly interesting. Jordan slew the giants. In an era of bigs like the league had never seen, it was a perimeter player who dominated the league and forever changed the game. Because of Jordan, and the marketing success the NBA had with him, the league changed the rules to make it more of a perimeter-oriented league.
-                            Because of his success against so many great big men, teams were trying to find that player who could do what Jordan did.</div>
-                        <div class="tab-pane fade" id="list-2000" role="tabpanel" aria-labelledby="list-2000-list">The first 10 years of the 21st century were famous (and infamous) for Lakers and Spurs dominance, 81 points scored by Kobe the legend himself and the Malice in the Palace.
-                            A few teams—the Detroit Pistons, Miami Heat, Boston Celtics, Orlando Magic, Dallas Mavericks and Cleveland Cavaliers—all had brief flirtations with fame.
-                            The 2000s also produced some of the most dramatic moments in NBA history, individual plays that will stand out for decades to come.</div>
-                        <div class="tab-pane fade" id="list-2010" role="tabpanel" aria-labelledby="list-2010-list">The NBA shaped the last 10 years in sports.
-                            The league delivered some of the most memorable on-court sports moments of the decade, from LeBron James and Kyrie Irving leading the Cleveland Cavaliers back from a 3-1 deficit against the 73-9 Golden State Warriors to Ray Allen's series-saving shot against the Spurs and Kobe Bryant's final game.
-                            Not only that, but the league set trends and created moments off the court.
-                            The thrill of free agency has consumed fans to the point that players are getting their planes tracked through the month of July.</div>
-                      </div>
+                        </svg>
                     </div>
                   </div>
-            </div>
-
-            <!-- Rules section -->
-
-            <div id="rules" class="rules">
-                <h1>Offical NBA Rules</h1>
-                <button class="btn btn-dark" id="rule-expand" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" 
-                aria-controls="collapseExample"> Click to Expand Rules</button>
-                <form method="get" action="rulebook.pdf">
-                    <button class="btn btn-primary" type="submit">Download Rules</button>
-                </form>
-                <br>
-                <div class="collapseRules collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <iframe id="ruleBook"src="rulebook.pdf"></iframe>
-                    </div>
-                </div>    
-            </div>
-        </div>
-
-        <!-- Profile Popup -->
-
-        <div class="modal-body" id="profile">
-            <div class="container-fluid">
-                    <div class="row">
-                        <div id="userPic2" class="col-4 col-sm-4">
-                        </div>
-                        <div id="userInfo" class="col-6 col-sm-6">
-                            <div id="user">
-                                <h4 id="username1">Username</h4>
-                                    <input id="changeUsername" maxlength="10" placeholder="Change Username" type="text">
-                                <h5 id="userFav">
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div>
-                            <select id="teamSelector"></select>
-                        </div>
-                        <div class="col-7 col-sm-7" style="display: flex; justify-content: space-around;">
-                            <input type="button" id="btnSave" value="Save" onclick="profilePopup(), userNameChanger()" class="btn btn-dark" />
-                            <input type="button" onclick="notSave()" id="btnClosePopup" value="Close" class="btn btn-dark" />
-                            <button class="btn btn-danger" onclick="window.open('/login')" type="button" onclick="">Sign out</button>
-                        </div>
-                    </div>
+                  <div class="horizontal-line-4"></div>
+                  <div class="shine"></div>
                 </div>
-            </div>
+                <div class="shadow"></div>
+            </div>              
         </div>
-
-        <!-- Bottom Footer -->
-
         <div class="footer">
             <p>© Copyright 2020 Buckets</p>
             <div class="button-container">
@@ -380,48 +66,10 @@
                     <a href="https://www.linkedin.com/in/william-thompson-04046a1a0/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <span id="trump">trump2020</span>
         </div>
     </div>
-
-    <!-- BootStrap and Login Authentication -->
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-
-<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
-
-<!-- Add additional services that you want to use -->
-
-<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyChPEeCUTs-74agDFc6FgCbzOwoaHd82jc",
-    authDomain: "buckets-e6bcb.firebaseapp.com",
-    databaseURL: "https://buckets-e6bcb.firebaseio.com",
-    projectId: "buckets-e6bcb",
-    storageBucket: "buckets-e6bcb.appspot.com",
-    messagingSenderId: "367826012336",
-    appId: "1:367826012336:web:51fcf5f0a3859792cd9375",
-    measurementId: "G-Q17LXSEH06"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-
-<script defer src="script.js"></script>
 </body>
 </html>
