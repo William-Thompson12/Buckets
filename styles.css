@@ -434,12 +434,6 @@
 .collapseRules {
     width: 80%;
 }
-.team-Card {
-    z-index: 9999;
-    position: absolute;
-    width: 243px;
-    margin-top: 15%;
-}
 #rule-expand {
     width: 200px;
     margin-top: 30px;
