@@ -308,11 +308,12 @@ function getTeamData(data){
 
 // Roster Finder
 function getRoster(teamId) {
-    fetch(`https://api-nba-v1.p.rapidapi.com/players/teamId/${teamId}`, requestOptions2)
+    let newTeamId = rosterContainer(teamId)
+    fetch(`https://api-nba-v1.p.rapidapi.com/players/teamId/${newTeamId}`, requestOptions2)
     .then(response => {
        return response.json()
     }) 
-    .then(result => findPlayerRoster(result.api.players, teamId))
+    .then(result => findPlayerRoster(result.api.players, newTeamId))
     .catch(error => console.log(error));
 }
 

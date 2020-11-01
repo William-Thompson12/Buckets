@@ -37,12 +37,10 @@ logoWall.innerHTML = teamLogos.join(` `)
 }
 
 function rosterContainer(teamId){
-  if(teamId < 2){
-    return `${teamId}`
-  } else if (teamId > 2 && teamId < 11) {
-    return `${teamId - 1}`
-  } else {
-    return `${teamId - 4}`
+  if(teamId > 2){
+    return `${teamId + 1}`
+  }else if(teamId > 11 || teamId < 14) {
+    return `${teamId + 2}`
   }
 }
 
@@ -106,7 +104,7 @@ function renderTeamStandingsEast (nbaTeamDataArr) {
 
 function findPlayerRoster(teamRoster, teamId){
   teamRoster = teamRoster.slice(0, 14)
-  var container = document.getElementById(`${rosterContainer(teamId)}-Roster`)
+  var container = document.getElementById(`${teamId}-Roster`)
   var newPlayerRoster = teamRoster.map(currentPlayer => {
       return `
       <div class="playerBar">

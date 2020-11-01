@@ -9,11 +9,9 @@
     flex-direction: column;
     background-image: url(img/blackFloor.jpeg);
     align-self: flex-start;
-    z-index: 9999;
-    left:0px;top:0px;
-    position:fixed;
     border: white 3px solid;
     min-width: 9.5rem;
+    background-repeat: no-repeat;
 }
 .page {
     width: 100%;
@@ -39,10 +37,9 @@
 }
 .content {
     align-self: flex-end;
-    width: 85%;
+    width: 100%;
     min-width: 50rem;
     height: 100%;
-    margin-left: clamp(9.5rem, 15vw, 15vw);
     background-color: rgb(0, 0, 0);
 }
 .home {
@@ -123,10 +120,9 @@
 .header-bottom {
     background-color: white;
     opacity: 50%;
-    width: 15vw;
+    width: 100%;
     height: auto;
-    position: fixed;
-    bottom: 0px;left: 0px;
+    align-self: baseline;
 }
 .button-container {
     width: 15vw;
@@ -224,8 +220,9 @@
     display: none;
 }
 .logoWall {
+    margin-left: 15px;
     margin-bottom: 20px;
-    width: 100%;
+    width: 91.5%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -385,7 +382,7 @@
     1px 1px 0 #000; 
 }
 .footer {
-    width: 85%;
+    width: 100%;
     min-width: 50rem;
     height: 200px;
     background-color: rgb(3, 3, 3);
@@ -394,7 +391,6 @@
     align-content: center;
     align-items: center;
     justify-items: center;
-    margin-left: clamp(9.5rem, 15vw, 15vw);
     color: rgb(128, 128, 128);
     flex-direction: column;
 }
@@ -607,4 +603,7 @@
     flex-direction: row;
     width: 400px;
     min-width: 300px;
+}
+.navbar {
+    height: 100vh;
 }
