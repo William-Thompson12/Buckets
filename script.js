@@ -37,10 +37,15 @@ logoWall.innerHTML = teamLogos.join(` `)
 }
 
 function rosterContainer(teamId){
-  if(teamId > 2){
-    return `${teamId + 1}`
-  }else if(teamId > 11 || teamId < 14) {
-    return `${teamId + 2}`
+  switch(teamId) {
+    case teamId <= 2:
+      return teamId;
+      break;
+    case teamId >= 3:
+      return teamId + 1
+      break;
+    default:
+      return teamId
   }
 }
 

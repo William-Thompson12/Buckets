@@ -19,16 +19,13 @@
 .content {
   align-self: center;
   justify-self: center;
-  width: 60%;
+  width: 100%;
 }
 .navbar {
   width: 100%;
 }
 .jumbotron {
-  width: 55rem;
-  border: 5px solid rgb(19, 19, 19);
-  border-radius: 30px;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(19, 19, 19);
   color: white;
 }
 .container > hr {
