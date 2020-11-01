@@ -14,18 +14,14 @@ body {
   align-content: center;
 }
 .footer {
-  width: 100%;
+  width: 100vw;
   height: 200px;
   background-color: rgb(3, 3, 3);
   display: flex;
   justify-content: center;
-  align-content: center;
   align-items: center;
-  justify-items: center;
   color: rgb(128, 128, 128);
   flex-direction: column;
-  align-self: baseline;
-  justify-self: baseline;
 }
 .button-container {
   display: flex;
@@ -37,7 +33,7 @@ body {
   text-align: center;
 }
 .center {
-  width: 30%;
+  width: 25rem;
   color: rgb(0, 0, 0);
   border: white 1px solid;
   border-radius: 5px;
