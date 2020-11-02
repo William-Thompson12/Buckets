@@ -36,6 +36,7 @@
     justify-content: space-evenly;
     margin-top: 10px;
     margin-right: 10px;
+    z-index: 9999;
 }
 .content {
     align-self: flex-end;
