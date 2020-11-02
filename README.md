@@ -62,6 +62,7 @@ This ranges from checking players stats or what college they joined, to finding 
             - At the bottom two links which link to my personal GitHub and Linkedin.
 
         - Content:
+        
             - Profile:
                 - Popup Profile options with a smaller version sticking to the top right
                 - Customizable username and icon
