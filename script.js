@@ -36,15 +36,49 @@ function renderTeams(nbaTeamDataArr) {
 logoWall.innerHTML = teamLogos.join(` `)
 }
 
+//API had random europe teams so I had to sort them out.
+
 function rosterContainer(teamId){
-  switch(teamId) {
-    case teamId <= 2:
-      return teamId;
+  console.log(teamId, 'start')
+  switch(true) {
+    case (teamId > 2 && teamId < 11):
+      console.log(teamId + 1, '2 </> 11')
+      return teamId + 1;
       break;
-    case teamId >= 3:
-      return teamId + 1
+    case (teamId == 11):
+      console.log(teamId + 3, ' == 11')
+      return teamId + 3;    
       break;
+    case (teamId == 12):
+      console.log(teamId + 3, '> 12')
+      return teamId + 3;
+      break;
+    case (teamId > 12) && teamId < 15:
+      console.log(teamId + 3, '12 </> 18')
+      return teamId + 3;
+      break;
+    case (teamId == 15):
+      console.log(teamId + 4, '12 </> 18')
+      return teamId + 4;
+      break;
+    case (teamId > 15 && teamId < 28):
+      console.log(teamId + 4, "15 </> 28");
+      return teamId + 4;
+      break;
+    case (teamId == 28):
+      console.log(teamId + 10, '= 28')
+      return teamId + 10;
+      break;
+    case (teamId == 29):
+      console.log(teamId + 11, '= 29')
+      return teamId + 11;
+      break;
+    case (teamId == 30):
+      console.log(teamId + 11, '= 30')
+      return teamId + 11;
+      break;     
     default:
+      console.log(teamId, 'default')
       return teamId
   }
 }
@@ -57,19 +91,21 @@ function renderTeamStandingsWest (nbaTeamDataArr) {
     if (findTeamConference(currentTeam.conference) == `West`) {
      return `
      <div class="teamRankedContainer" ${findTeamRank(currentTeam.name)}>
-       <div class="card-top">
-         <img id="teamLogo2" src="https://stats.nba.com/media/img/teams/logos/${currentTeam.abbreviation}_logo.svg">
-         <div>
+      <div class="card-top">
+        <img id="teamLogo2" src="https://stats.nba.com/media/img/teams/logos/${currentTeam.abbreviation}_logo.svg">
+        <div>
           <h4 class="seed${currentTeam.conference}" id="seed-${currentTeam.name}"></h4>
          </div>
          <div class="team-body">
-           <div class="teamName">
-             <h4><a id="team-link" href="#${currentTeam.name}">${currentTeam.full_name}</a></h4>
-             <h6>${currentTeam.division}</h6>
-           </div>
-         </div>
-       </div>
-     </div>
+          <div class="teamName">
+            <h5><a id="team-link" href="#${currentTeam.name}">${currentTeam.full_name}</a></h5>
+            <div class="teamNameSpace">
+            </div>
+            <h6>${currentTeam.division}</h6>     
+          </div>
+        </div>
+      </div>
+    </div>
      `
     }else {
       return
@@ -82,21 +118,23 @@ function renderTeamStandingsEast (nbaTeamDataArr) {
   var rankedTeam = document.getElementById(`rankedTeamEastern`)
   var newTeamArr = nbaTeamDataArr.map((currentTeam) => {
     if (findTeamConference(currentTeam.conference) == `East`) {
-     return `
-      <div class="teamRankedContainer" id="${findTeamRank(currentTeam.name)}">
-        <div class="card-top">
-          <img id="teamLogo2" src="https://stats.nba.com/media/img/teams/logos/${currentTeam.abbreviation}_logo.svg">
-          <div>
-            <h4 class="seed${currentTeam.conference}" id="seed-${currentTeam.name}"></h4>
-          </div>
-          <div class="team-body">
-            <div class="teamName">
-              <h4><a id="team-link" href="#${currentTeam.name}">${currentTeam.full_name}</a></h4>
-              <h6>${currentTeam.division}</h6>
+     return`
+     <div class="teamRankedContainer" ${findTeamRank(currentTeam.name)}>
+      <div class="card-top">
+        <img id="teamLogo2" src="https://stats.nba.com/media/img/teams/logos/${currentTeam.abbreviation}_logo.svg">
+        <div>
+          <h4 class="seed${currentTeam.conference}" id="seed-${currentTeam.name}"></h4>
+         </div>
+         <div class="team-body">
+          <div class="teamName">
+            <h5><a id="team-link" href="#${currentTeam.name}">${currentTeam.full_name}</a></h5>
+            <div class="teamNameSpace">
             </div>
+            <h6>${currentTeam.division}</h6>     
           </div>
         </div>
       </div>
+    </div>
      `
     }else {
       return
