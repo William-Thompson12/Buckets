@@ -36,7 +36,7 @@ This ranges from checking players stats or what college they joined, to finding 
             ^ I would try to avoid speanding time on design and looks until I have the core features functionally working.
         - Asking for help sooner.
             ^ I am a guy who enjoyes solving problems through googling or trial and error as mentioned earlier.
-            ^ This caused me to speand hours on an issue that could have been solved if only I had contacted my peers and teachers after a certain amount of time.
+            ^ This caused me to spend hours on an issue that could have been solved if only I had contacted my peers and teachers after a certain amount of time.
 
 **Repository Contents**
 
