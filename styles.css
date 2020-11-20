@@ -52,6 +52,7 @@
     background-image: url(img/jordan-home.jpg);
     flex-direction: column;
     align-items: flex-start;
+    background-repeat: no-repeat;
 }
 .title {
     display: flex;
