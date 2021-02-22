@@ -2,9 +2,8 @@
 ## Front-End Project - Digital Crafts
 
 ## Status: Currently Running
-### Rosters/Standings Updated 2019
-
 https://buckets-dc.netlify.app/
+Rosters/Standings Updated 2019
 
 **Hello! Welcome to my front-end project "Buckets"**
 
